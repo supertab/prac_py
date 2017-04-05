@@ -21,7 +21,10 @@ def detect_encode(fname):
     f.close()
     return(encod)
 
-def batch_convert(override=True):
+def batch_convert(path, override=True):
+    try:
+        os.chdir(path)
+    except: return 1
     dirname=''
     if not override:
         dirname = 'convert/'
@@ -38,7 +41,13 @@ def batch_convert(override=True):
         with open(dirname+each_file, 'w') as fout:
             fout.write(content)
             print('convert', each_file)
+    return 0
 
 
 if __name__ == '__main__':
-    batch_convert()
+    keepon =input( "Warning it will override all the txt files, continue?[Y]/N: ")
+    if keepon in ['y','Y']:
+        enter=True
+        while enter:
+            path = input('enter the path[./]: ')
+            enter = batch_convert( path )
