@@ -1,0 +1,27 @@
+set -g default-terminal "screen-256color"
+# split v
+unbind '"'
+bind - splitw -v
+# split h
+unbind %
+bind | splitw -h
+
+#up
+bind k select-pane -U
+#down
+bind j select-pane -D
+#left
+bind h select-pane -L
+#right
+bind l select-pane -R
+#last
+bind e lastp
+
+# resize pane
+bind -r ^k resizep -U 5 # upward (prefix Ctrl+k)
+bind -r ^j resizep -D 5 # downward (prefix Ctrl+j)
+bind -r ^h resizep -L 5 # to the left (prefix Ctrl+h)
+bind -r ^l resizep -R 5 # to the right (prefix Ctrl+l)
+
+
+bind r source ~/.tmux.conf \; display "Reloaded!"

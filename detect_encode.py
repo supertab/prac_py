@@ -1,3 +1,16 @@
+#!/usr/bin/python3
+# encoding:utf-8
+
+def select_file(*args):
+    import os
+    suffix=['.cc', '.py', '.txt', '.md']
+    if len(args): suffix.extend(args)
+    flist = [f for f in os.listdir('./') if os.path.splitext(f)[1] in suffix] 
+    files = ''.join([ str(idx+1) + ' ' + f + '\n' for (idx, f) in enumerate(flist)])
+    fidx = input('%s选择文件(输入数字)：'%files)
+    if fidx.isdigit() and 0<int(fidx)<=len(flist):
+        return flist[int(fidx)-1]
+
 def detect_encode(fname):
     # enter file name, at current dir
     # return file's encode 
@@ -19,8 +32,8 @@ def detect_encode(fname):
         f.seek(0)
         break
     f.close()
-    return(encod)
+    return encod
 
 if __name__ == '__main__':
-    fname = 'no_num.txt'
+    fname = select_file()
     print( detect_encode(fname))

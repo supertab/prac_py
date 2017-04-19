@@ -22,5 +22,5 @@ def detect_encode(fname):
     return(encod)
 
 if __name__ == '__main__':
-    fname = 'no_num.txt'
+    fname = 'new_str.txt'
     print( detect_encode(fname))

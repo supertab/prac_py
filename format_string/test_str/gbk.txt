@@ -1,0 +1,14 @@
+
+- 查看暂存区的文件（与 git status 区别）
+`git ls-files`
+
+- 仅仅删除 暂存区里的文件     
+此时你想撤销错误添加到暂存区里的文件，可以输入以下命令：
+`git rm --cache 文件名` 如果不加 `--cache` 工作目录中的文件也会被删除
+`-r .` 递归删除
+
+- 删除暂存区和工作区的文件
+`git rm -f 文件名`
+工作区的文件也被删除了。
+
+http://mp.weixin.qq.com/s/TgZivNyuMeWGOC4z-V67AQ
